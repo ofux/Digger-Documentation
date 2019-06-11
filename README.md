@@ -26,6 +26,7 @@ Digger is very easy to setup, but it requires you to install 3 packages.
 
 Then, open the Package Manager (menu *Windows > Package Manager*).
 
+<img src="assets/img/package-manager-menu.png" alt="Package Manager" width="180"/>
 
 
 ## Welcome to GitHub Pages
