@@ -10,7 +10,7 @@ With this tool, you will be able to:
 - Dig in your Unity terrain just like if it was a smooth voxel terrain.
 - Create overhangs (the opposite of digging).
 - Apply different textures on the overhangs, in the caves, etc.
-- ***NEW***: Dig in real-time at runtime / in-game.
+- ***NEW:*** Dig in real-time at runtime.
 
 However, you won't be able to:
 - Generate caves procedurally. If you need this feature, you should get a full voxel-based terrain solution, like [Ultimate Terrains](https://assetstore.unity.com/packages/tools/terrain/ultimate-terrains-voxel-terrain-engine-31100).
