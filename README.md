@@ -1,3 +1,5 @@
+# Digger Documentation
+
 ## Introduction
 
 Digger is a simple yet powerful tool to create natural caves and overhangs on your Unity terrains directly from the Unity editor.
