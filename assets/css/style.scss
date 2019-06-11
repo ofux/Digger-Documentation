@@ -4,7 +4,7 @@
 @import "{{ site.theme }}";
 
 @media screen and (min-width: 64em) {
-    .page-header {
+    section.page-header {
         padding: 3rem 4rem;
     }
 }
