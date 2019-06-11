@@ -28,41 +28,67 @@ Then, open the Package Manager (menu *Windows > Package Manager*).
 
 <img src="assets/img/package-manager-menu.png" alt="Package Manager" width="180"/>
 
+In the Package Manager window, click on "Advanced" and enable "Show preview packages".
 
-## Welcome to GitHub Pages
+<img src="assets/img/show-preview-packages.png" alt="Package Manager" width="180"/>
 
-You can use the [editor on GitHub](https://github.com/ofux/diggerDoc/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Install the latest version of the packages `Mathematics`, `Collections` and `Burst`.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Then, import Digger into your project (from the Asset Store).
 
-### Markdown
+From now on, Digger should be imported and **you should not have any error in the console**. There should be a new menu: *Tools > Digger*.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+**You are ready to use Digger.**
 
-```markdown
-Syntax highlighted code block
+Open a scene with a terrain (you can open "simple-scene" in *Assets/Digger/Demo* for example) or create a terrain in a new scene. Configure your terrain layers as usual and modify your terrain as usual (raise or lower height, etc.). Make sure all your terrain layers have both a texture and a normal map.
 
-# Header 1
-## Header 2
-### Header 3
+Once this is done, click on *Tools > Digger > Setup terrains*. This will prepare texture arrays for Digger material, add Digger System to all terrains in the scene and add Digger Master object.
 
-- Bulleted
-- List
+`ADD IMG HERE`
 
-1. Numbered
-2. List
+Click on Digger Master in the hierarchy of the scene to display the Digger Master inspector.
 
-**Bold** and _Italic_ and `Code` text
+`ADD IMG HERE`
 
-[Link](url) and ![Image](src)
-```
+The Digger Master inspector looks like this:
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+`ADD IMG HERE`
 
-### Jekyll Themes
+To start digging, just click somewhere on your terrain!
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ofux/diggerDoc/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Note: the first time you dig, Unity will freeze during about 1s. This is because the Burst compiler needs to compile internal Digger jobs.
 
-### Support or Contact
+### Details of each field
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- Scene data folder: Digger will automatically persist data in Assets/DiggerData/<scene-data-folder>. By default, this is the name of the scene. You can change it if you want, but don’t forget to rename the directory as well.
+- Resolution: by default, Digger generates meshes that fit to terrain’s mesh, which is directly related to heightmap resolution (and terrain size), but you can tell Digger to use a finer resolution (respectively, 2 times, 4 times or 8 times the terrain’s mesh resolution) thanks to this parameter.
+- Screen Relative Transition Height of LODs: adjust these sliders to tell at which distance from the camera the cave/overhangs meshes should switch between LODs.
+The bigger it is, the closer you will have to be from the object to get the highly detailed mesh.
+- Collider LOD: lets you change the Level Of Details of the collider mesh. If you want accurate collisions that fit exactly to the ground, set it to 0. If you want better performance and don’t mind to have a lower accuracy, increase it to 1 or 2.
+- Brush: lets you choose the action to perform between digging terrain, raising overhangs, reseting (reset to terrain height but do not restore terrain details objects), or painting.
+- Opacity: the speed at which you will dig/add mater to the terrain. This has no effect on reset and paint brushes.
+- Size: the size of the brush.
+- List of textures: lets you choose which texture to use.
+- Clear: this will clear all modifications you’ve made to the terrains with Digger, but it won’t restore terrain details objects. This cannot be undone.
+- Sync & Refresh: forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
+
+
+## Integration with CTS
+
+CTS (Complete Terrain Shaders) is supported by Digger, but as things stand, you won’t be able to change textures in caves or on overhangs. It will pick-up the terrain texture. Future versions of CTS might allow to fix this.
+
+
+## Upgrade guide
+
+When a new version of Digger is released, you will probably want to install it. Just keep in mind that some updates might contain breaking changes that won't work with previous Digger saved data. In such case, it is clearly mentioned in the release note of the new version.
+
+Follow these steps to upgrade your version of Digger:
+- Completely backup your project (including **full copy-paste** of *DiggerData* folder)
+- Remove *Digger* folder in Assets (but do **not** remove *DiggerData* folder)
+- Import the new version
+- Open you scene(s) and click on “Sync & Refresh” button
+
+
+`ADD IMG HERE`
+
+`ADD IMG HERE`
