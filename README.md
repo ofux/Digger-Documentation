@@ -1,3 +1,27 @@
+## Introduction
+
+Digger is a simple yet powerful tool to create natural caves and overhangs on your Unity terrains directly from the Unity editor.
+
+More and more AAA games add gentle overhangs and caves to their environment to make it more realistic, more interesting and more diversified.
+A common way to do this is to create 3D models with an external modeling tool, and then place them manually over the terrain and blend them with it. This is tedious, unpractical and inefficient unless you have an army of 3D artists and level designers... and even in that case, you'd probably want them to focus on more valuable work.
+This is where Digger comes to action. No more external tool required, no more loss of time, no more headache. It lets you create caves and overhangs on your terrain directly within the scene view, in a few clicks.
+
+With this tool, you will be able to:
+- Dig in your Unity terrain just like if it was a smooth voxel terrain.
+- Create overhangs (the opposite of digging).
+- Apply different textures on the overhangs, in the caves, etc.
+- ***NEW***: Dig in real-time at runtime / in-game.
+
+However, you won't be able to:
+- Generate caves procedurally. If you need this feature, you should get a full voxel-based terrain solution, like [Ultimate Terrains](https://assetstore.unity.com/packages/tools/terrain/ultimate-terrains-voxel-terrain-engine-31100).
+
+Digger can be downloaded from the [Asset Store](https://assetstore.unity.com/packages/tools/terrain/digger-caves-overhangs-135178).
+
+
+
+
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/ofux/diggerDoc/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
