@@ -93,15 +93,46 @@ The `DiggerMasterRuntime` component doesn't do much by itself. You will have to 
 
 The signature of *Modify* method is:
 ```csharp
+/// <summary>
+/// Modify the terrain at runtime by performing the requested action.
+/// </summary>
+/// <param name="position">Position where you want to edit the terrain</param>
+/// <param name="brush">Brush type</param>
+/// <param name="action">Action type</param>
+/// <param name="textureIndex">Index of the texture to be used (starting from 0 to 7). See DiggerMaster inspector to know what texture corresponds to an index.</param>
+/// <param name="opacity">Strength/intensity of edit</param>
+/// <param name="size">Size of edit</param>
+/// <param name="removeDetails">Remove terrain details in range</param>
+/// <param name="removeTreesInSphere">Remove terrain trees in range</param>
+/// <param name="stalagmiteHeight">Height of stalagmite (only when Brush is stalagmite)</param>
+/// <param name="stalagmiteUpsideDown">Defines if stalagmite is upside-down or not (only when Brush is stalagmite)</param>
+public void Modify(Vector3 position, BrushType brush, ActionType action, int textureIndex, float opacity,
+                   float size, bool removeDetails = true, bool removeTreesInSphere = true, float stalagmiteHeight = 8f, bool stalagmiteUpsideDown = false)
+{
+    if (!CheckEditor())
+        return;
+
+    foreach (var diggerSystem in diggerSystems) {
+        diggerSystem.Modify(brush, action, opacity, position, size, stalagmiteHeight, stalagmiteUpsideDown, textureIndex, removeDetails);
+        if (removeTreesInSphere) {
+            diggerSystem.RemoveTreesInSphere(position, size);
+        }
+    }
+}
 ```
 
 And here is an example showing how you could use it in your scripts:
 ```csharp
+if (DiggerPhysics.Raycast(transform.position, transform.forward, out var hit, 2000f)) {
+    diggerMasterRuntime.Modify(hit.point, brush, action, textureIndex, opacity, size);
+}
 ```
 
 ### Performance issues
 
-Keep in mind that digging has a cost. To prevent performance issues, keep brush size as small as possible.
+Keep in mind that digging has a cost. To prevent performance issues, keep brush size as small as possible. Also, try to call the *Modify* method at most one time per frame.
+
+If you are using CTS, Digger has to compute mesh tangents which slows down the build process.
 
 
 ## Integration with CTS
