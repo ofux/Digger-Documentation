@@ -130,9 +130,9 @@ if (DiggerPhysics.Raycast(transform.position, transform.forward, out var hit, 20
 
 ### Performance issues
 
-Keep in mind that digging has a cost. To prevent performance issues, keep brush size as small as possible. Also, try to call the *Modify* method at most one time per frame.
+Keep in mind that digging has a cost. To prevent performance issues at runtime, keep the brush size as small as possible. Also, try to call the *Modify* method at most one time per frame.
 
-If you are using CTS, Digger has to compute mesh tangents which slows down the build process.
+Note: if you are using CTS, Digger has to compute mesh tangents which slows down the build process.
 
 
 ## Integration with CTS
@@ -145,7 +145,7 @@ CTS (Complete Terrain Shaders) is supported by Digger, but as things stand, you 
 When a new version of Digger is released, you will probably want to install it. Just keep in mind that some updates might contain breaking changes that won't work with previous Digger saved data. In such case, it is clearly mentioned in the release note of the new version.
 
 Follow these steps to upgrade your version of Digger:
-- Completely backup your project (including **full copy-paste** of *DiggerData* folder and its *.internal* folder)
+- Completely backup your project (including **full copy-paste** of *DiggerData* folder and its *.internal* hidden folder)
 - Remove *Digger* folder in Assets (but do **not** remove *DiggerData* folder)
 - Import the new version
 - Open you scene(s) and click on “Sync & Refresh” button
