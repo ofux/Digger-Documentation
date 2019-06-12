@@ -68,12 +68,16 @@ Note: the first time you dig, Unity will freeze during about 1s. This is because
 - Screen Relative Transition Height of LODs: adjust these sliders to tell at which distance from the camera the cave/overhangs meshes should switch between LODs.
 The bigger it is, the closer you will have to be from the object to get the highly detailed mesh.
 - Collider LOD: lets you change the Level Of Details of the collider mesh. If you want accurate collisions that fit exactly to the ground, set it to 0. If you want better performance and don’t mind to have a lower accuracy, increase it to 1 or 2.
-- Brush: lets you choose the action to perform between digging terrain, raising overhangs, reseting (reset to terrain height but do not restore terrain details objects), or painting.
-- Opacity: the speed at which you will dig/add mater to the terrain. This has no effect on reset and paint brushes.
-- Size: the size of the brush.
+- Action: lets you choose the action to perform between digging terrain, raising overhangs, reseting (reset to terrain height but do not restore terrain details objects), or painting.
+- Brush: lets you choose the brush type to use between sphere, cube and stalagmite.
+- Brush Size: the size of the brush.
+- Opacity: the speed at which you will dig/add mater to the terrain. This has no effect on reset and paint actions.
+- Depth: the depth from the surface where you want to perform the action. Useful to adjust the position of the brush relatively to the terrain surface.
 - List of textures: lets you choose which texture to use.
+- Auto-remove terrain details: enable this to remove grass and details objects  automatically while you dig. Note: this cannot be undone!
+- Persist in Play Mode: enable this to persist modifications that are done while the game is playing. This is generally what you want but if you want to test the DiggerRuntimeMaster in the editor, you will have to disable it.
 - Clear: this will clear all modifications you’ve made to the terrains with Digger, but it won’t restore terrain details objects. This cannot be undone.
-- Sync & Refresh: forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
+- **Sync & Refresh:** forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
 
 
 ## Integration with CTS
