@@ -33,7 +33,7 @@ Then, open the Package Manager (menu *Windows > Package Manager*).
 
 In the Package Manager window, click on "Advanced" and enable "Show preview packages".
 
-<img src="assets/img/show-preview-packages.png" alt="Package Manager" width="180"/>
+<img src="assets/img/show-preview-packages.png" alt="Package Manager" width="250"/>
 
 Install the latest version of the packages `Mathematics`, `Collections` and `Burst`.
 
@@ -47,15 +47,15 @@ Open a scene with a terrain (you can open "simple-scene" in *Assets/Digger/Demo*
 
 Once this is done, click on *Tools > Digger > Setup terrains*. This will prepare texture arrays for Digger material, add Digger System to all terrains in the scene and add Digger Master object.
 
-<img src="assets/img/setup-terrains.png" alt="Package Manager" width="180"/>
+<img src="assets/img/setup-terrains.png" alt="Package Manager" width="250"/>
 
 Click on Digger Master in the hierarchy of the scene to display the Digger Master inspector.
 
-<img src="assets/img/digger-master.png" alt="Package Manager" width="180"/>
+<img src="assets/img/digger-master.png" alt="Package Manager" width="250"/>
 
 The Digger Master inspector looks like this:
 
-<img src="assets/img/digger-inspector.png" alt="Package Manager" width="180"/>
+<img src="assets/img/digger-inspector.png" alt="Package Manager" width="250"/>
 
 To start digging, just click somewhere on your terrain!
 
@@ -100,7 +100,7 @@ Unity *Physics.Raycast* methods won’t work through cave entrances because they
 
 Digger also provides a tool that can replace all occurrences of Physics.Raycast with DiggerPhysics.Raycast in a script for you. To use it, right-click on the script file you want to update and click on *Digger > Convert Raycasts* as shown below.
 
-<img src="assets/img/digger-raycast-converter.png" alt="Package Manager" width="180"/>
+<img src="assets/img/digger-raycast-converter.png" alt="Package Manager" width="250"/>
 
 
 ## Troubleshooting
