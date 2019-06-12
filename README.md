@@ -47,15 +47,15 @@ Open a scene with a terrain (you can open "simple-scene" in *Assets/Digger/Demo*
 
 Once this is done, click on *Tools > Digger > Setup terrains*. This will prepare texture arrays for Digger material, add Digger System to all terrains in the scene and add Digger Master object.
 
-`ADD IMG HERE`
+<img src="assets/img/setup-terrains.png" alt="Package Manager" width="180"/>
 
 Click on Digger Master in the hierarchy of the scene to display the Digger Master inspector.
 
-`ADD IMG HERE`
+<img src="assets/img/digger-master.png" alt="Package Manager" width="180"/>
 
 The Digger Master inspector looks like this:
 
-`ADD IMG HERE`
+<img src="assets/img/digger-inspector.png" alt="Package Manager" width="180"/>
 
 To start digging, just click somewhere on your terrain!
 
@@ -100,7 +100,7 @@ Unity *Physics.Raycast* methods won’t work through cave entrances because they
 
 Digger also provides a tool that can replace all occurrences of Physics.Raycast with DiggerPhysics.Raycast in a script for you. To use it, right-click on the script file you want to update and click on *Digger > Convert Raycasts* as shown below.
 
-`ADD IMG HERE`
+<img src="assets/img/digger-raycast-converter.png" alt="Package Manager" width="180"/>
 
 
 ## Troubleshooting
