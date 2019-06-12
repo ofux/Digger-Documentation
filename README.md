@@ -79,6 +79,26 @@ The bigger it is, the closer you will have to be from the object to get the high
 - **Clear:** this will clear all modifications you’ve made to the terrains with Digger, but it won’t restore terrain details objects. This cannot be undone.
 - **Sync & Refresh:** forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
 
+## Realtime / in-game editing
+
+### Setup
+
+Digger now supports realtime editing, at runtime. To enable Digger at runtime, you **must** add `DiggerMasterRuntime` component in your scene(s). The easiest way to do this is to click on *Tools > Digger > Setup for runtime* menu. This will add an empty GameObject in your scene named "Digger Master Runtime" with the `DiggerMasterRuntime` attached to it.
+
+<img src="assets/img/setup-runtime.png" alt="Package Manager" width="250"/>
+
+### Use
+
+The `DiggerMasterRuntime` component doesn't do much by itself. You will have to use its *Modify* method from your own scripts in order to perform actions on the terrain at runtime.
+
+The signature of *Modify* method is:
+```csharp
+```
+
+### Performance issues
+
+
+
 
 ## Integration with CTS
 
