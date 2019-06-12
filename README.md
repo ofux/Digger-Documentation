@@ -95,9 +95,13 @@ The signature of *Modify* method is:
 ```csharp
 ```
 
+And here is an example showing how you could use it in your scripts:
+```csharp
+```
+
 ### Performance issues
 
-
+Keep in mind that digging has a cost. To prevent performance issues, keep brush size as small as possible.
 
 
 ## Integration with CTS
