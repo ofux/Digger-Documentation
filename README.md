@@ -213,7 +213,7 @@ See this page for more information about terrain layers: https://docs.unity3d.co
 
 #### Does Digger support the built in navmesh system?
 No, because the navmesh system will still think the terrain is there (it won’t take terrain holes into account).
-We will have to wait for Unity 2019.2 (or later) and its official, clean, terrain hole feature for this.
+We will have to wait for Unity 2019.3 and its official, clean, terrain *cut* feature for this.
 
 #### Is this an extension to Unity's built-in terrain system or an entirely proprietary system?
 It’s an extension of the Unity’s built in terrain system. Basically, it just cuts the terrain where needed and generate meshes for caves and overhangs. In the end, you get a Unity terrain + some meshes (with different LODs because Digger generates automatically different LODs for each mesh).
@@ -229,7 +229,7 @@ Yes it solves collision thanks to automatically generated triggers + collision m
 However, to get Raycast working, you will have to use DiggerPhysics.Raycast method.
 
 #### How can I do to make Raycast working through cave entrances?
-Until official terrain hole feature (maybe in Unity 2019.2), you have to use DiggerPhysics.Raycast method.
+Until official terrain hole/cut feature (coming in Unity 2019.3), you have to use the DiggerPhysics.Raycast method.
 
 
 ## Support
@@ -237,3 +237,11 @@ Until official terrain hole feature (maybe in Unity 2019.2), you have to use Dig
 To get support, join us on **Discord**: https://discord.gg/C2X6C6s
 
 Latest version of this documentation can be found here: https://ofux.github.io/Digger-Documentation/
+
+## About Unity 2019.3
+
+Unity 2019.3 will come with a new feature allowing to cleanly cut holes in the terrain. However, it will **not** create cave meshes for you. This is why Digger will be a perfect companion of this new feature.
+
+Thanks to this new way to cut holes in the terrain surface, Digger will have better performance, will be more robust, should work out of the box with NavMesh and will work with Physics.Raycast (no need to use DiggerPhysics anymore).
+
+Note that Digger for Unity 2019.3 is still under development.
