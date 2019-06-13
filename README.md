@@ -112,6 +112,8 @@ public void Modify(Vector3 position, BrushType brush, ActionType action, int tex
 
 And here is an example showing how you could use it in your scripts:
 ```csharp
+var diggerMasterRuntime = FindObjectOfType<DiggerMasterRuntime>();
+
 if (DiggerPhysics.Raycast(transform.position, transform.forward, out var hit, 2000f)) {
     diggerMasterRuntime.Modify(hit.point, BrushType.Sphere, ActionType.Dig, 0, 0.5f, 4f);
 }
