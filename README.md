@@ -108,17 +108,6 @@ The signature of *Modify* method is:
 /// <param name="stalagmiteUpsideDown">Defines if stalagmite is upside-down or not (only when Brush is stalagmite)</param>
 public void Modify(Vector3 position, BrushType brush, ActionType action, int textureIndex, float opacity,
                    float size, bool removeDetails = true, bool removeTreesInSphere = true, float stalagmiteHeight = 8f, bool stalagmiteUpsideDown = false)
-{
-    if (!CheckEditor())
-        return;
-
-    foreach (var diggerSystem in diggerSystems) {
-        diggerSystem.Modify(brush, action, opacity, position, size, stalagmiteHeight, stalagmiteUpsideDown, textureIndex, removeDetails);
-        if (removeTreesInSphere) {
-            diggerSystem.RemoveTreesInSphere(position, size);
-        }
-    }
-}
 ```
 
 And here is an example showing how you could use it in your scripts:
