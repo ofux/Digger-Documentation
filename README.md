@@ -63,7 +63,7 @@ Note: the first time you dig, Unity will freeze during about 1s. This is because
 
 ### Details of each field
 
-## Edit tab
+#### Edit tab
 - **Action:** lets you choose the action to perform between digging terrain, raising overhangs, reseting (reset to terrain height but do not restore terrain details objects), or painting.
 - **Brush:** lets you choose the brush type to use between sphere, cube and stalagmite.
 - **Brush Size:** the size of the brush.
@@ -75,7 +75,7 @@ Note: the first time you dig, Unity will freeze during about 1s. This is because
 - **Clear:** this will clear all modifications you’ve made to the terrains with Digger, but it won’t restore terrain details objects. This cannot be undone.
 - **Sync & Refresh:** forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
 
-## Settings tab
+#### Settings tab
 - **Scene data folder:** Digger will automatically persist data in Assets/DiggerData/<scene-data-folder>. By default, this is the name of the scene. You can change it if you want, but don’t forget to rename the directory as well.
 - **Resolution:** by default, Digger generates meshes that fit to terrain’s mesh, which is directly related to heightmap resolution (and terrain size), but you can tell Digger to use a finer resolution (respectively, 2 times, 4 times or 8 times the terrain’s mesh resolution) thanks to this parameter.
 - **Create LODs:** when enabled, Digger will automatically create 3 LODs for each mesh. Recommended only if you don't plan to use Digger at runtime.
