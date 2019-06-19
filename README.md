@@ -12,7 +12,7 @@ This is where Digger comes to action. No more external tool required, no more lo
 - Dig in your Unity terrain just like if it was a smooth voxel terrain.
 - Create overhangs (the opposite of digging).
 - Apply different textures on the overhangs, in the caves, etc.
-- ***NEW:*** Dig in real-time at runtime.
+- ***Digger PRO only:*** Dig in real-time at runtime.
 
 ### However, you won't be able to:
 - Generate caves procedurally. If you need this feature, you should get a full voxel-based terrain solution, like [Ultimate Terrains](https://assetstore.unity.com/packages/tools/terrain/ultimate-terrains-voxel-terrain-engine-31100).
@@ -63,11 +63,7 @@ Note: the first time you dig, Unity will freeze during about 1s. This is because
 
 ### Details of each field
 
-- **Scene data folder:** Digger will automatically persist data in Assets/DiggerData/<scene-data-folder>. By default, this is the name of the scene. You can change it if you want, but don’t forget to rename the directory as well.
-- **Resolution:** by default, Digger generates meshes that fit to terrain’s mesh, which is directly related to heightmap resolution (and terrain size), but you can tell Digger to use a finer resolution (respectively, 2 times, 4 times or 8 times the terrain’s mesh resolution) thanks to this parameter.
-- **Screen Relative Transition Height of LODs:** adjust these sliders to tell at which distance from the camera the cave/overhangs meshes should switch between LODs.
-The bigger it is, the closer you will have to be from the object to get the highly detailed mesh.
-- **Collider LOD:** lets you change the Level Of Details of the collider mesh. If you want accurate collisions that fit exactly to the ground, set it to 0. If you want better performance and don’t mind to have a lower accuracy, increase it to 1 or 2.
+## Edit tab
 - **Action:** lets you choose the action to perform between digging terrain, raising overhangs, reseting (reset to terrain height but do not restore terrain details objects), or painting.
 - **Brush:** lets you choose the brush type to use between sphere, cube and stalagmite.
 - **Brush Size:** the size of the brush.
@@ -79,7 +75,18 @@ The bigger it is, the closer you will have to be from the object to get the high
 - **Clear:** this will clear all modifications you’ve made to the terrains with Digger, but it won’t restore terrain details objects. This cannot be undone.
 - **Sync & Refresh:** forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
 
-## Realtime / in-game editing
+## Settings tab
+- **Scene data folder:** Digger will automatically persist data in Assets/DiggerData/<scene-data-folder>. By default, this is the name of the scene. You can change it if you want, but don’t forget to rename the directory as well.
+- **Resolution:** by default, Digger generates meshes that fit to terrain’s mesh, which is directly related to heightmap resolution (and terrain size), but you can tell Digger to use a finer resolution (respectively, 2 times, 4 times or 8 times the terrain’s mesh resolution) thanks to this parameter.
+- **Create LODs:** when enabled, Digger will automatically create 3 LODs for each mesh. Recommended only if you don't plan to use Digger at runtime.
+- **Screen Relative Transition Height of LODs:** adjust these sliders to tell at which distance from the camera the cave/overhangs meshes should switch between LODs.
+The bigger it is, the closer you will have to be from the object to get the highly detailed mesh.
+- **Collider LOD:** lets you change the Level Of Details of the collider mesh. If you want accurate collisions that fit exactly to the ground, set it to 0. If you want better performance and don’t mind to have a lower accuracy, increase it to 1 or 2.
+- **Clear:** this will clear all modifications you’ve made to the terrains with Digger, but it won’t restore terrain details objects. This cannot be undone.
+- **Sync & Refresh:** forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
+
+
+## Realtime / in-game editing (Digger PRO only)
 
 ### Setup
 
