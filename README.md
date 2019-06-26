@@ -255,9 +255,9 @@ Note that Digger for Unity 2019.3 is still under development. Both **Digger** an
 
 ## How to thank the developer?
 
-If you like Digger, the best way to thank the developer and help the project is to write a review on the Asset Store.
+If you like Digger, the best way to help the project is to write a review on the Asset Store.
 Nothing makes me happier than a nice review!
 
-Also, don't hesitate to share your feedback on Discord. It helps a lot to improve the product.
+Also, don't hesitate to share your feedback on Discord. It's important to improve the product.
 
 That's all. Now go and enjoy digging your terrains!
