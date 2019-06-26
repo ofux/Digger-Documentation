@@ -85,6 +85,11 @@ The bigger it is, the closer you will have to be from the object to get the high
 - **Clear:** this will clear all modifications you’ve made to the terrains with Digger, but it won’t restore terrain details objects. This cannot be undone.
 - **Sync & Refresh:** forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
 
+#### Help tab
+
+This tab contains a link to this documentation as well as Discord for support.
+**It also gives you a link to write a review on the Asset Store which is the best way to thank the developer! :)**
+
 
 ## Realtime / in-game editing (PRO only)
 
