@@ -54,7 +54,7 @@ Click on Digger Master in the hierarchy of the scene to display the Digger Maste
 
 The Digger Master inspector looks like this:
 
-<img src="assets/img/digger-inspector-1.png" alt="Package Manager" width="250"/> <img src="assets/img/digger-inspector-2.png" alt="Package Manager" width="250"/>
+<img src="assets/img/digger-inspector-1.png" alt="Package Manager" width="300"/> <img src="assets/img/digger-inspector-2.png" alt="Package Manager" width="300"/>
 
 To start digging, just click somewhere on your terrain!
 
