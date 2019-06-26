@@ -17,7 +17,7 @@ Digger PRO has all the features of Digger plus realtime/in-game editing support.
 - Generate caves procedurally. If you need this feature, you should get a full voxel-based terrain solution, like [Ultimate Terrains](https://assetstore.unity.com/packages/tools/terrain/ultimate-terrains-voxel-terrain-engine-31100).
 
 ### Get Digger
-Digger can be downloaded from the [Asset Store](https://assetstore.unity.com/packages/tools/terrain/digger-caves-overhangs-135178).
+Digger and Digger PRO can be downloaded from the [Asset Store](https://assetstore.unity.com/publishers/11530).
 
 
 ## Getting Started
