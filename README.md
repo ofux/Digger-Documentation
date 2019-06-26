@@ -135,6 +135,10 @@ if (DiggerPhysics.Raycast(transform.position, transform.forward, out var hit, 20
 
 Keep in mind that digging has a cost. To prevent performance issues at runtime, keep the brush size as small as possible. Also, try to call the *Modify* method at most one time per frame.
 
+You can also improve performance by:
+- lowering the size of chunks (set it to 16) in the Settings tab
+- disabling LODs generation
+
 Note: if you are using CTS, Digger has to compute mesh tangents which slows down the build process.
 
 
