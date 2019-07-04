@@ -211,6 +211,9 @@ This can happen with some textures on some parts of the terrain if you enabled â
 
 In most cases, this is not noticable (all screenshots on the Asset Store page have been made with a terrain where Draw instanced is enabled for example), but if you find that it is too visible, you can simply disable Draw instanced in the [terrain settings](https://docs.unity3d.com/Manual/terrain-OtherSettings.html).
 
+#### When I get away from a place I dug, at a certain distance, I can see a thin dark border around Digger meshes.
+Try to lower the *Pixel error* in [terrain settings](https://docs.unity3d.com/Manual/terrain-OtherSettings.html).
+
 #### Some of the terrain textures are missing in Digger inspector, and they are not rendered on Digger meshes.
 This happen when you have some terrain layers that donâ€™t have a normal map. Digger requires all terrain layers to have a normal map.
 See this page for more information about terrain layers: https://docs.unity3d.com/Manual/class-TerrainLayer.html
