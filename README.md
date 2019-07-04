@@ -138,6 +138,8 @@ Keep in mind that digging has a cost. To prevent performance issues at runtime, 
 You can also improve performance by:
 - lowering the size of chunks (set it to 16) in the Settings tab
 - disabling LODs generation
+- reducing the size of the terrain's control map
+- reducing the size of the terrain's heightmap
 
 Note: if you are using CTS, Digger has to compute mesh tangents which slows down the build process.
 
