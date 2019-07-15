@@ -243,6 +243,10 @@ However, to get Raycast working, you will have to use DiggerPhysics.Raycast meth
 #### How can I do to make Raycast working through cave entrances?
 Until official terrain hole/cut feature (coming in Unity 2019.3), you have to use the DiggerPhysics.Raycast method.
 
+#### How to see the objects and meshes created by Digger from the hierarchy?
+Find the *DiggerSystem* object which is a child of your Terrain. Select it. In the inspector GUI, enable *"Show debug data"*. Save the scene and reload it (close it and open it again or restart Unity).
+You will now see all the objects, meshes and colliders as children of the *DiggerSystem* object.
+
 
 ## Support
 
