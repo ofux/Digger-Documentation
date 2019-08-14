@@ -177,9 +177,6 @@ Digger also provides a tool that can replace all occurrences of Physics.Raycast 
 Disable Burst Compilation from the Burst menu. Restart Unity, and try digging again. If this fixes your issue, it means Burst is doing something wrong on your platform.
 In such case, you should report the bug to Unity.
 
-#### Digger meshes are not rendered properly on Android / iOS
-Digger requires OpenGL ES 3, so make sure OpenGL ES 2.0 is not used as Graphic API. To change the Graphic API used in your project, see this [article](https://support.unity3d.com/hc/en-us/articles/209004446-How-do-I-change-the-supported-Graphics-APIs-for-my-game-) and/or this [manual](https://docs.unity3d.com/Manual/GraphicsAPIs.html).
-
 #### When I do some raycasts, it still detects the terrain surface on holes. How can I do to raycast through terrain holes?
 Until Unity releases official terrain holes feature, you have to use DiggerPhysics.Raycast method to solve this.
 
