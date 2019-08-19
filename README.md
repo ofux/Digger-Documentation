@@ -24,7 +24,7 @@ Digger and Digger PRO can be downloaded from the [Asset Store](https://assetstor
 
 Digger is very easy to setup, but it requires you to install 3 packages.
 
-**First, make sure your project uses *.NET 4.x* as [shown here](https://docs.unity3d.com/Manual/ScriptingRuntimeUpgrade.html).**
+**First, make sure your project uses *.NET 4.x* as [shown here](https://docs.unity3d.com/2019.1/Documentation/Manual/ScriptingRuntimeUpgrade.html).**
 
 Then, open the Package Manager (menu *Windows > Package Manager*).
 
