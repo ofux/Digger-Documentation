@@ -144,6 +144,61 @@ You can also improve performance by:
 Note: if you are using CTS, Digger has to compute mesh tangents which slows down the build process.
 
 
+## Realtime / in-game NavMesh update (PRO only)
+
+### About NavMeshComponents
+
+Digger PRO comes with a customized version of (NavMeshComponents)[https://github.com/Unity-Technologies/NavMeshComponents] module.
+This is the latest version of Unity's NavMeshComponents with only a few changes to make some C# methods public and usable from DiggerNavMeshRuntime script, which was needed for optimisation purpose.
+
+The namespace has also been changed from *UnityEngine.AI* to *Digger.Navigation* to avoid any confict.
+
+### Setup
+
+To enable Digger NavMeshComponents at runtime, you **must** add `DiggerNavMeshRuntime` component in your scene(s). The easiest way to do this is to click on *Tools > Digger > Setup NavMeshComponents* menu. This will add the DiggerNavMeshRuntime component to the "Digger Master Runtime" object.
+
+### Use
+
+**First, you need at least one NavMeshSurface** in your scene as Digger entirely relies on it. See [NavMeshComponents documentation](https://github.com/Unity-Technologies/NavMeshComponents) and [NavMeshComponents Unity's tutorial](https://unity3d.com/fr/learn/tutorials/topics/navigation/navmeshsurface-component) for more information. You can also find some help by searching the web.
+
+Once you added one or more NavMeshSurface to your scene, you can **bake** them before running your game so that when Digger will update the NavMesh it won't need to build it entirely.
+
+Before baking your NavMeshSurfaces, **I strongly recommend to edit your terrains with Digger**, at least a little bit, even if you only want runtime editing. This may look quite surprising, but doing so will prevent the NavMesh from rebuilding the whole terrain the first time you dig with Digger.
+
+You are now ready to use DiggerNavMeshRuntime.
+
+The `DiggerNavMeshRuntime` component doesn't do much by itself. You will have to use its *CollectNavMeshSources* and *UpdateNavMeshAsync* methods from your own scripts in order to update the NavMesh at runtime.
+
+The signature of *CollectNavMeshSources* method is:
+```csharp
+/// <summary>
+/// Collects all NavMesh sources in the world. This should be called once, and only once, in the Start method of another MonoBehavior.
+/// </summary>
+public void CollectNavMeshSources()
+```
+
+This method collects all NavMesh sources in the world. This should be called once, in the Start method of another MonoBehavior.
+
+The signatures of *UpdateNavMeshAsync* method are:
+```csharp
+/// <summary>
+/// Incrementally and asynchronously updates the NavMesh. Call this when you want the NavMesh to be refreshed, but avoid calling this every frame
+/// to limit the impact on performance.
+/// </summary>
+public void UpdateNavMeshAsync()
+
+/// <summary>
+/// Incrementally and asynchronously updates the NavMesh. Call this when you want the NavMesh to be refreshed, but avoid calling this every frame
+/// to limit the impact on performance.
+/// </summary>
+/// <param name="callback">Callback method to be invoked once NavMesh has been updated</param>
+public void UpdateNavMeshAsync(Action callback)
+```
+
+This method incrementally and asynchronously updates the NavMesh. Call this when you want the NavMesh to be refreshed, but avoid calling this every frame to keep a good FPS. For example, if your player can dig continuously by holding the mouse button, you should update the NavMesh only once the player releases the mouse button.
+
+Optionaly, you can pass a callback method as a second argument. The callback will be called once the NavMesh has been refreshed.
+
 ## Integration with CTS
 
 CTS (Complete Terrain Shaders) is supported by Digger, but as things stand, you won’t be able to change textures in caves or on overhangs. It will pick-up the terrain texture. Future versions of CTS might allow to fix this.
