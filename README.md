@@ -186,7 +186,9 @@ The signatures of *UpdateNavMeshAsync* method are:
 /// to limit the impact on performance.
 /// </summary>
 public void UpdateNavMeshAsync()
-
+```
+or
+```csharp
 /// <summary>
 /// Incrementally and asynchronously updates the NavMesh. Call this when you want the NavMesh to be refreshed, but avoid calling this every frame
 /// to limit the impact on performance.
