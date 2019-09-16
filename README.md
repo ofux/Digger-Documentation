@@ -199,7 +199,7 @@ public void UpdateNavMeshAsync(Action callback)
 
 This method incrementally and asynchronously updates the NavMesh. Call this when you want the NavMesh to be refreshed, but avoid calling this every frame to keep a good FPS. For example, if your player can dig continuously by holding the mouse button, you should update the NavMesh only once the player releases the mouse button.
 
-Optionaly, you can pass a callback method as a second argument. The callback will be called once the NavMesh has been refreshed.
+Optionaly, you can pass a callback method as an argument. The callback will be called once the NavMesh has been refreshed.
 
 ## Integration with CTS
 
