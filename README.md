@@ -148,7 +148,7 @@ Note: if you are using CTS, Digger has to compute mesh tangents which slows down
 
 ### About NavMeshComponents
 
-Digger PRO comes with a customized version of (NavMeshComponents)[https://github.com/Unity-Technologies/NavMeshComponents] module.
+Digger PRO comes with a customized version of [NavMeshComponents](https://github.com/Unity-Technologies/NavMeshComponents) module.
 This is the latest version of Unity's NavMeshComponents with only a few changes to make some C# methods public and usable from DiggerNavMeshRuntime script, which was needed for optimisation purpose.
 
 The namespace has also been changed from *UnityEngine.AI* to *Digger.Navigation* to avoid any confict.
@@ -158,6 +158,8 @@ The namespace has also been changed from *UnityEngine.AI* to *Digger.Navigation*
 To enable Digger NavMeshComponents at runtime, you **must** add `DiggerNavMeshRuntime` component in your scene(s). The easiest way to do this is to click on *Tools > Digger > Setup NavMeshComponents* menu. This will add the DiggerNavMeshRuntime component to the "Digger Master Runtime" object.
 
 ### Use
+
+Digger NavMesh updater relies entirely on Unity's NavMeshSurface component. You should **NOT** bake any NavMesh using the classical AI > Navigation window because it will not be updated by Digger.
 
 **First, you need at least one NavMeshSurface** in your scene as Digger entirely relies on it. See [NavMeshComponents documentation](https://github.com/Unity-Technologies/NavMeshComponents) and [NavMeshComponents Unity's tutorial](https://unity3d.com/fr/learn/tutorials/topics/navigation/navmeshsurface-component) for more information. You can also find some help by searching the web.
 
