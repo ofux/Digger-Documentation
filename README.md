@@ -44,7 +44,7 @@ From now on, Digger should be imported and **you should not have any error in th
 
 Open a scene with a terrain (you can open "simple-scene" in *Assets/Digger/Demo* for example) or create a terrain in a new scene. Configure your terrain layers as usual and modify your terrain as usual (raise or lower height, etc.). Make sure all your terrain layers have both a texture and a normal map.
 
-Once this is done, click on *Tools > Digger > Setup terrains*. This will prepare texture arrays for Digger material, add Digger System to all terrains in the scene and add Digger Master object.
+Once this is done, click on *Tools > Digger > Setup terrains*. This will prepare Digger material, add Digger System to all terrains in the scene and add Digger Master object.
 
 <img src="assets/img/setup-terrains.png" alt="Package Manager" width="250"/>
 
