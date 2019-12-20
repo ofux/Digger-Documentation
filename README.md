@@ -22,7 +22,9 @@ Digger and Digger PRO can be downloaded from the [Asset Store](https://assetstor
 
 ## Getting Started
 
-Digger is very easy to setup, but it requires you to install 3 packages.
+Digger is very easy to setup. Downloading and importing it from the Asset Store should be enough.
+
+However, if you get some errors or have some troubles, you will have to do the following:
 
 **First, make sure your project uses *.NET 4.x* as [shown here](https://docs.unity3d.com/2019.1/Documentation/Manual/ScriptingRuntimeUpgrade.html).**
 
@@ -30,11 +32,7 @@ Then, open the Package Manager (menu *Windows > Package Manager*).
 
 <img src="assets/img/package-manager-menu.png" alt="Package Manager" width="180"/>
 
-In the Package Manager window, click on "Advanced" and enable "Show preview packages".
-
-<img src="assets/img/show-preview-packages.png" alt="Package Manager" width="250"/>
-
-Install the latest version of the packages `Mathematics`, `Collections` and `Burst`.
+Install the latest version of the packages `Mathematics` and `Burst`.
 
 Then, import Digger into your project (from the Asset Store).
 
