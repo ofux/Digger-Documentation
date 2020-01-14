@@ -20,9 +20,11 @@ From now on, Digger should be imported and **there should not be any error in th
 
 ## Update
 
-**Before importing a new version of Digger, please delete the Assets/Digger folder.**
+**Before importing a new version of Digger, please delete the Assets/Digger folder.** (but do **not** remove *DiggerData* folder)
 
 Also, before updating Digger, it is recommended to backup your project (as with any asset update).
+
+**After importing the new version, open Digger Master and click on *Sync & Refresh*.**
 
 
 ## Installation issues
@@ -216,20 +218,9 @@ Optionaly, you can pass a callback method as an argument. The callback will be c
 CTS (Complete Terrain Shaders) is supported by Digger, but as things stand, you won’t be able to change textures in caves or on overhangs. It will pick-up the terrain texture. Future versions of CTS might allow to fix this.
 
 
-## Upgrade guide
+## Raycast with DiggerPhysics (not necessary with Unity 2019.3+)
 
-When a new version of Digger is released, you will probably want to install it. Just keep in mind that some updates might contain breaking changes that won't work with previous Digger saved data. In such case, it is clearly mentioned in the release note of the new version.
-
-Follow these steps to upgrade your version of Digger:
-- Completely backup your project (including **full copy-paste** of *DiggerData* folder and its *.internal* hidden folder)
-- Remove *Digger* folder in Assets (but do **not** remove *DiggerData* folder)
-- Import the new version
-- Open you scene(s) and click on “Sync & Refresh” button
-
-
-## Raycast with DiggerPhysics
-
-Unity *Physics.Raycast* methods won’t work through cave entrances because they will hit the old terrain surface as if it was still there. To solve this issue, Digger provides equivalent Raycast methods through the script *DiggerPhysics*.
+Unless you use Unity 2019.3 (or more recent), Unity *Physics.Raycast* methods won’t work through cave entrances because they will hit the old terrain surface as if it was still there. To solve this issue, Digger provides equivalent Raycast methods through the script *DiggerPhysics*.
 
 ⇒ To make raycasts work properly on cave entrances, you must replace all *Physics.Raycast* methods with *DiggerPhysics.Raycast* equivalent (just replace "Physics" by "DiggerPhysics").
 
