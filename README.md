@@ -6,6 +6,11 @@ There are two versions of Digger: **Digger** and **Digger PRO**.
 Digger PRO has all the features of Digger plus realtime/in-game editing support.
 
 
+## Support
+
+To get support, please join us on **Discord**: https://discord.gg/C2X6C6s
+
+
 ## Download
 
 Digger and Digger PRO can be downloaded from the [Asset Store](https://assetstore.unity.com/publishers/11530).
@@ -42,6 +47,8 @@ Install the latest version of the packages `Mathematics` and `Burst`.
 Delete Assets/Digger folder (if any) and import Digger into your project (from the Asset Store).
 
 From now on, Digger should be imported and **you should not have any error in the console**. There should be a new menu: *Tools > Digger*.
+
+If you still have some issues, please join us on **Discord** so we can help you: https://discord.gg/C2X6C6s
 
 
 ## Getting Started
