@@ -7,16 +7,9 @@ Digger is a simple yet powerful tool to create natural caves and overhangs on yo
 There are two versions of Digger: **Digger** and **Digger PRO**.
 Digger PRO has all the features of Digger plus realtime/in-game editing support.
 
-### With this tool, you will be able to:
-- Dig in your Unity terrain just like if it was a smooth voxel terrain.
-- Create overhangs (the opposite of digging).
-- Apply different textures on the overhangs, in the caves, etc.
-- ***PRO only:*** Dig in real-time at runtime.
 
-### However, you won't be able to:
-- Generate caves procedurally. If you need this feature, you should get a full voxel-based terrain solution, like [Ultimate Terrains](https://assetstore.unity.com/packages/tools/terrain/ultimate-terrains-voxel-terrain-engine-31100).
+## Download
 
-### Get Digger
 Digger and Digger PRO can be downloaded from the [Asset Store](https://assetstore.unity.com/publishers/11530).
 
 
@@ -26,11 +19,13 @@ Digger is very easy to setup. Just download and import it from the Asset Store. 
 
 From now on, Digger should be imported and **you should not have any error in the console**. There should be a new menu: *Tools > Digger*.
 
+
 ## Update
 
 **Before importing the new version of Digger, please delete the Assets/Digger folder.**
 
 Also, before updating Digger, it is recommended to backup your project (as with any asset update).
+
 
 ## Installation issues
 
@@ -47,6 +42,7 @@ Install the latest version of the packages `Mathematics` and `Burst`.
 Delete Assets/Digger folder (if any) and import Digger into your project (from the Asset Store).
 
 From now on, Digger should be imported and **you should not have any error in the console**. There should be a new menu: *Tools > Digger*.
+
 
 ## Getting Started
 
@@ -67,6 +63,7 @@ The Digger Master inspector looks like this:
 To start digging, just click somewhere on your terrain!
 
 Note: the first time you dig, Unity will freeze during a few seconds. This is because the Burst compiler needs to compile internal Digger jobs.
+
 
 ## Details of each field
 
