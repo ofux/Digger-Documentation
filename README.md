@@ -1,28 +1,40 @@
 # Digger Documentation
 
-## Introduction
-
 Digger is a simple yet powerful tool to create natural caves and overhangs on your Unity terrains directly from the Unity editor.
 
 There are two versions of Digger: **Digger** and **Digger PRO**.
 Digger PRO has all the features of Digger plus realtime/in-game editing support.
 
-### With this tool, you will be able to:
-- Dig in your Unity terrain just like if it was a smooth voxel terrain.
-- Create overhangs (the opposite of digging).
-- Apply different textures on the overhangs, in the caves, etc.
-- ***PRO only:*** Dig in real-time at runtime.
 
-### However, you won't be able to:
-- Generate caves procedurally. If you need this feature, you should get a full voxel-based terrain solution, like [Ultimate Terrains](https://assetstore.unity.com/packages/tools/terrain/ultimate-terrains-voxel-terrain-engine-31100).
+## Support
 
-### Get Digger
+To get support, please join us on **Discord**: https://discord.gg/C2X6C6s
+
+
+## Download
+
 Digger and Digger PRO can be downloaded from the [Asset Store](https://assetstore.unity.com/publishers/11530).
 
 
-## Getting Started
+## Install
 
-Digger is very easy to setup, but it requires you to install 3 packages.
+Digger is very easy to setup. Just download and import it from the Asset Store. **When Unity asks you if you want to install required packages, click *Yes*.**
+
+From now on, Digger should be imported and **there should not be any error in the console**. There should be a new menu: *Tools > Digger*.
+
+
+## Update
+
+**Before importing a new version of Digger, please delete the Assets/Digger folder.** (but do **not** remove *DiggerData* folder)
+
+Also, before updating Digger, it is recommended to backup your project (as with any asset update).
+
+**After importing the new version, open Digger Master and click on *Sync & Refresh*.**
+
+
+## Installation issues
+
+If you get some errors after importing Digger, please check the following:
 
 **First, make sure your project uses *.NET 4.x* as [shown here](https://docs.unity3d.com/2019.1/Documentation/Manual/ScriptingRuntimeUpgrade.html).**
 
@@ -30,17 +42,16 @@ Then, open the Package Manager (menu *Windows > Package Manager*).
 
 <img src="assets/img/package-manager-menu.png" alt="Package Manager" width="180"/>
 
-In the Package Manager window, click on "Advanced" and enable "Show preview packages".
+Install the latest version of the packages `Mathematics` and `Burst`.
 
-<img src="assets/img/show-preview-packages.png" alt="Package Manager" width="250"/>
-
-Install the latest version of the packages `Mathematics`, `Collections` and `Burst`.
-
-Then, import Digger into your project (from the Asset Store).
+Delete Assets/Digger folder (if any) and import Digger into your project (from the Asset Store).
 
 From now on, Digger should be imported and **you should not have any error in the console**. There should be a new menu: *Tools > Digger*.
 
-**You are ready to use Digger.**
+If you still have some issues, please join us on **Discord** so we can help you: https://discord.gg/C2X6C6s
+
+
+## Getting Started
 
 Open a scene with a terrain (you can open "simple-scene" in *Assets/Digger/Demo* for example) or create a terrain in a new scene. Configure your terrain layers as usual and modify your terrain as usual (raise or lower height, etc.). Make sure all your terrain layers have both a texture and a normal map.
 
@@ -58,11 +69,12 @@ The Digger Master inspector looks like this:
 
 To start digging, just click somewhere on your terrain!
 
-Note: the first time you dig, Unity will freeze during about 1s. This is because the Burst compiler needs to compile internal Digger jobs.
+Note: the first time you dig, Unity will freeze during a few seconds. This is because the Burst compiler needs to compile internal Digger jobs.
 
-### Details of each field
 
-#### Edit tab
+## Details of each field
+
+### Edit tab
 - **Action:** lets you choose the action to perform between digging terrain, raising overhangs, reseting (reset to terrain height but do not restore terrain details objects), or painting.
 - **Brush:** lets you choose the brush type to use between sphere, cube and stalagmite.
 - **Brush Size:** the size of the brush.
@@ -74,7 +86,7 @@ Note: the first time you dig, Unity will freeze during about 1s. This is because
 - **Clear:** this will clear all modifications you’ve made to the terrains with Digger, but it won’t restore terrain details objects. This cannot be undone.
 - **Sync & Refresh:** forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
 
-#### Settings tab
+### Settings tab
 - **Scene data folder:** Digger will automatically persist data in Assets/DiggerData/<scene-data-folder>. By default, this is the name of the scene. You can change it if you want, but don’t forget to rename the directory as well.
 - **Show underlying objects:** Enable this to reveal all the objects generated by Digger in the hierarchy.
 - **Layer:** This is the layer you want to use for Digger-generated meshes.
@@ -88,10 +100,11 @@ The bigger it is, the closer you will have to be from the object to get the high
 - **Clear:** this will clear all modifications you’ve made to the terrains with Digger, but it won’t restore terrain details objects. This cannot be undone.
 - **Sync & Refresh:** forces Digger to synchronize with terrains and recompute everything. This is useful if you changed terrain textures or heights.
 
-#### Help tab
+### Help tab
 
 This tab contains a link to this documentation as well as Discord for support.
-**It also gives you a link to write a review on the Asset Store which is the best way to thank the developer! :)**
+
+It also gives you a link to write a review on the Asset Store which is the best way to thank the developer! :)
 
 
 ## Realtime / in-game editing (PRO only)
@@ -139,9 +152,10 @@ if (DiggerPhysics.Raycast(transform.position, transform.forward, out var hit, 20
 Keep in mind that digging has a cost. To prevent performance issues at runtime, keep the brush size as small as possible. Also, try to call the *Modify* method at most one time per frame.
 
 You can also improve performance by:
+- using Unity 2019.3+
 - lowering the size of chunks (set it to 16) in the Settings tab
 - disabling LODs generation
-- reducing the size of the terrain's control map
+- reducing the size of the terrain's control map (only if you use Unity 2019.2 o an older version)
 - reducing the size of the terrain's heightmap
 
 Note: if you are using CTS, Digger has to compute mesh tangents which slows down the build process.
@@ -211,20 +225,9 @@ Optionaly, you can pass a callback method as an argument. The callback will be c
 CTS (Complete Terrain Shaders) is supported by Digger, but as things stand, you won’t be able to change textures in caves or on overhangs. It will pick-up the terrain texture. Future versions of CTS might allow to fix this.
 
 
-## Upgrade guide
+## Raycast with DiggerPhysics (not necessary with Unity 2019.3+)
 
-When a new version of Digger is released, you will probably want to install it. Just keep in mind that some updates might contain breaking changes that won't work with previous Digger saved data. In such case, it is clearly mentioned in the release note of the new version.
-
-Follow these steps to upgrade your version of Digger:
-- Completely backup your project (including **full copy-paste** of *DiggerData* folder and its *.internal* hidden folder)
-- Remove *Digger* folder in Assets (but do **not** remove *DiggerData* folder)
-- Import the new version
-- Open you scene(s) and click on “Sync & Refresh” button
-
-
-## Raycast with DiggerPhysics
-
-Unity *Physics.Raycast* methods won’t work through cave entrances because they will hit the old terrain surface as if it was still there. To solve this issue, Digger provides equivalent Raycast methods through the script *DiggerPhysics*.
+Unless you use Unity 2019.3 (or more recent), Unity *Physics.Raycast* methods won’t work through cave entrances because they will hit the old terrain surface as if it was still there. To solve this issue, Digger provides equivalent Raycast methods through the script *DiggerPhysics*.
 
 ⇒ To make raycasts work properly on cave entrances, you must replace all *Physics.Raycast* methods with *DiggerPhysics.Raycast* equivalent (just replace "Physics" by "DiggerPhysics").
 
