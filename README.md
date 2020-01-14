@@ -20,11 +20,21 @@ Digger PRO has all the features of Digger plus realtime/in-game editing support.
 Digger and Digger PRO can be downloaded from the [Asset Store](https://assetstore.unity.com/publishers/11530).
 
 
-## Getting Started
+## Install
 
-Digger is very easy to setup. Downloading and importing it from the Asset Store should be enough.
+Digger is very easy to setup. Just download and import it from the Asset Store. **When Unity asks you if you want to install required packages, click *Yes*.**
 
-However, if you get some errors or have some troubles, you will have to do the following:
+From now on, Digger should be imported and **you should not have any error in the console**. There should be a new menu: *Tools > Digger*.
+
+## Update
+
+**Before importing the new version of Digger, please delete the Assets/Digger folder.**
+
+Also, before updating Digger, it is recommended to backup your project (as with any asset update).
+
+## Installation issues
+
+If you get some errors after importing Digger, please check the following:
 
 **First, make sure your project uses *.NET 4.x* as [shown here](https://docs.unity3d.com/2019.1/Documentation/Manual/ScriptingRuntimeUpgrade.html).**
 
@@ -34,11 +44,11 @@ Then, open the Package Manager (menu *Windows > Package Manager*).
 
 Install the latest version of the packages `Mathematics` and `Burst`.
 
-Then, import Digger into your project (from the Asset Store).
+Delete Assets/Digger folder (if any) and import Digger into your project (from the Asset Store).
 
 From now on, Digger should be imported and **you should not have any error in the console**. There should be a new menu: *Tools > Digger*.
 
-**You are ready to use Digger.**
+## Getting Started
 
 Open a scene with a terrain (you can open "simple-scene" in *Assets/Digger/Demo* for example) or create a terrain in a new scene. Configure your terrain layers as usual and modify your terrain as usual (raise or lower height, etc.). Make sure all your terrain layers have both a texture and a normal map.
 
@@ -56,9 +66,9 @@ The Digger Master inspector looks like this:
 
 To start digging, just click somewhere on your terrain!
 
-Note: the first time you dig, Unity will freeze during about 1s. This is because the Burst compiler needs to compile internal Digger jobs.
+Note: the first time you dig, Unity will freeze during a few seconds. This is because the Burst compiler needs to compile internal Digger jobs.
 
-### Details of each field
+## Details of each field
 
 #### Edit tab
 - **Action:** lets you choose the action to perform between digging terrain, raising overhangs, reseting (reset to terrain height but do not restore terrain details objects), or painting.
