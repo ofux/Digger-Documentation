@@ -1,7 +1,5 @@
 # Digger Documentation
 
-## Introduction
-
 Digger is a simple yet powerful tool to create natural caves and overhangs on your Unity terrains directly from the Unity editor.
 
 There are two versions of Digger: **Digger** and **Digger PRO**.
@@ -17,7 +15,7 @@ Digger and Digger PRO can be downloaded from the [Asset Store](https://assetstor
 
 Digger is very easy to setup. Just download and import it from the Asset Store. **When Unity asks you if you want to install required packages, click *Yes*.**
 
-From now on, Digger should be imported and **you should not have any error in the console**. There should be a new menu: *Tools > Digger*.
+From now on, Digger should be imported and **there should not be any error in the console**. There should be a new menu: *Tools > Digger*.
 
 
 ## Update
