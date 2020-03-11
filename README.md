@@ -44,7 +44,9 @@ Then, open the Package Manager (menu *Windows > Package Manager*).
 
 Install the latest version of the packages `Mathematics` and `Burst`.
 
-Delete Assets/Digger folder (if any) and import Digger into your project (from the Asset Store).
+Delete Assets/Digger folder (if any) and import Digger into your project (from the Asset Store). **When Unity asks you if you want to install required packages, click *No*.**
+
+Some users reported issues with the Package Manager after importing Digger. This is a Unity/Package Manager bug. Fortunately there is a simple workaround: when importing Digger, **unselect** the *Manifest.json* file from the import window.
 
 From now on, Digger should be imported and **you should not have any error in the console**. There should be a new menu: *Tools > Digger*.
 
