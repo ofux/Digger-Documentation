@@ -129,13 +129,13 @@ Digger now supports realtime editing, at runtime. To enable Digger at runtime, y
 
 ### Use
 
-The `DiggerMasterRuntime` component doesn't do much by itself. You will have to use its *Modify* method from your own scripts in order to perform actions on the terrain at runtime.
+The `DiggerMasterRuntime` component doesn't do much by itself. You will have to use its methods from your own scripts in order to perform actions on the terrain at runtime.
 
 #### Synchronous editing
 
-To edit the terrain synchronously, use the *Modify* method of DiggerMasterRuntime. *Synchronously* means that once this method returns, the terrain have been modified, required meshes have been generated and mesh colliders have been updated.
+To edit the terrain synchronously, use the *Modify* method of DiggerMasterRuntime. *Synchronously* means that once this method returns, everything has been done, the terrain have been modified, required meshes have been generated and mesh colliders have been updated. In other words, it *waits* for the modification to be completely done before returning.
 
-The signature of *Modify* method is:
+The signature of the *Modify* method is:
 ```csharp
 /// <summary>
 /// Modify the terrain at runtime by performing the requested action.
@@ -167,7 +167,7 @@ if (DiggerPhysics.Raycast(transform.position, transform.forward, out var hit, 20
 
 To edit the terrain asynchronously, use the *ModifyAsync* or *ModifyAsyncBuffured* method of DiggerMasterRuntime. *Asynchronously* means that this method returns immediately without waiting for the modification to be actually done.
 
-The signature of *ModifyAsync* method is:
+The signature of the *ModifyAsync* method is:
 
 ```csharp
 /// <summary>
@@ -193,7 +193,7 @@ public IEnumerator ModifyAsync(Vector3 position, BrushType brush, ActionType act
 **It is up to you to check if *IsRunningAsync* is *false* before calling it and call it in a new Coroutine.**
 This is why it is easier to use the *ModifyAsyncBuffured* method.
 
-The signature of *ModifyAsyncBuffured* is:
+The signature of the *ModifyAsyncBuffured* is:
 
 ```csharp
 /// <summary>
