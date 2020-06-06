@@ -353,6 +353,15 @@ This method incrementally and asynchronously updates the NavMesh. Call this when
 
 Optionaly, you can pass a callback method as an argument. The callback will be called once the NavMesh has been refreshed.
 
+## Integration with MicroSplat
+
+MicroSplat is fuly supported by Digger. It is actually recommended to use MicroSplat with Digger to get best results. MicroSplat is one of the best terrain shader available for Unity.
+
+You will need:
+- [MicroSplat](https://assetstore.unity.com/packages/tools/terrain/microsplat-96478)
+- [Triplanar module](https://assetstore.unity.com/packages/tools/terrain/microsplat-triplanar-uvs-96777)
+- [Digger integration module](https://assetstore.unity.com/packages/tools/terrain/microsplat-digger-integration-162840)
+
 ## Integration with CTS
 
 CTS (Complete Terrain Shaders) is supported by Digger, but as things stand, you won’t be able to change textures in caves or on overhangs. It will pick-up the terrain texture. Future versions of CTS might allow to fix this.
