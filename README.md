@@ -193,6 +193,10 @@ public IEnumerator ModifyAsync(Vector3 position, BrushType brush, ActionType act
 **You MUST check that *IsRunningAsync* is *false* before calling this method. Also, you MUST call it as a Coroutine.**
 This is why it is easier to use the *ModifyAsyncBuffured* method (see below).
 
+The *ModifyAsyncBuffured* method append the modification to a buffer so it can be performed asynchronously and takes care of the coroutine mess for you. It returns *true* if the modification could be appended to the buffer and *false* if the buffer was full and modification is discarded.
+
+You can change the buffer size using the `BufferSize` property of DiggerMasterRuntime. By default, buffer size is 1.
+
 The signature of the *ModifyAsyncBuffured* is:
 
 ```csharp
