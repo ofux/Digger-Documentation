@@ -190,8 +190,8 @@ public IEnumerator ModifyAsync(Vector3 position, BrushType brush, ActionType act
                                float size, bool removeDetails = true, bool removeTreesInSphere = true, float stalagmiteHeight = 8f,
                                bool stalagmiteUpsideDown = false, bool opacityIsTarget = false)
 ```
-**It is up to you to check if *IsRunningAsync* is *false* before calling it and call it in a new Coroutine.**
-This is why it is easier to use the *ModifyAsyncBuffured* method.
+**You MUST check that *IsRunningAsync* is *false* before calling this method. Also, you MUST call it as a Coroutine.**
+This is why it is easier to use the *ModifyAsyncBuffured* method (see below).
 
 The signature of the *ModifyAsyncBuffured* is:
 
