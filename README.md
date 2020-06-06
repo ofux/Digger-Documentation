@@ -193,7 +193,7 @@ public IEnumerator ModifyAsync(Vector3 position, BrushType brush, ActionType act
 **You MUST check that *IsRunningAsync* is *false* before calling this method. Also, you MUST call it as a Coroutine.**
 This is why it is easier to use the *ModifyAsyncBuffured* method (see below).
 
-The *ModifyAsyncBuffured* method append the modification to a buffer so it can be performed asynchronously and takes care of the coroutine mess for you. It returns *true* if the modification could be appended to the buffer and *false* if the buffer was full and modification is discarded.
+The *ModifyAsyncBuffured* method appends the modification to a buffer so it can be performed asynchronously and takes care of the coroutine mess for you. It returns *true* if the modification could be appended to the buffer and *false* if the buffer was full and modification is discarded.
 
 You can change the buffer size using the `BufferSize` property of DiggerMasterRuntime. By default, buffer size is 1.
 
@@ -236,6 +236,8 @@ if (DiggerPhysics.Raycast(transform.position, transform.forward, out var hit, 20
 To persist modifications at runtime, just call *PersistAll* method of DiggerMasterRuntime.
 **Persistence must be enable in DiggerMasterRuntime inspector before building your project in order to be able to use it.**
 
+Note: persistence methods have no effect in Unity editor.
+
 Its signature is:
 ```csharp
 /// <summary>
@@ -276,7 +278,7 @@ Once you create the new terrain, all you need is to call *SetupRuntimeTerrain* m
 public void SetupRuntimeTerrain(Terrain terrain)
 ```
 
-### Performance issues
+### Performance tips
 
 Keep in mind that digging has a cost. To prevent performance issues at runtime, keep the brush size as small as possible. Also, try to call the *Modify* method at most one time per frame.
 
@@ -284,8 +286,10 @@ You can also improve performance by:
 - using Unity 2019.3+
 - lowering the size of chunks (set it to 16) in the Settings tab
 - disabling LODs generation
+- use async modification methods
 - reducing the size of the terrain's control map (only if you use Unity 2019.2 o an older version)
 - reducing the size of the terrain's heightmap
+- if you have a big terrain, cut it in smaller chunks (ie. use multiple terrains instead of only one)
 
 Note: if you are using CTS, Digger has to compute mesh tangents which slows down the build process.
 
