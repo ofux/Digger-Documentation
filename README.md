@@ -364,7 +364,7 @@ You will need:
 
 ## Integration with CTS
 
-CTS (Complete Terrain Shaders) is supported by Digger, but as things stand, you won’t be able to change textures in caves or on overhangs. It will pick-up the terrain texture. Future versions of CTS might allow to fix this.
+CTS (Complete Terrain Shaders) is partially supported by Digger, but as things stand, you won’t be able to change textures in caves or on overhangs. It will pick-up the terrain texture.
 
 
 ## Raycast with DiggerPhysics (not necessary with Unity 2019.3+)
