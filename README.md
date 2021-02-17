@@ -355,7 +355,7 @@ Optionaly, you can pass a callback method as an argument. The callback will be c
 
 ## Integration with MicroSplat
 
-MicroSplat is fuly supported by Digger. It is actually recommended to use MicroSplat with Digger to get best results. MicroSplat is one of the best terrain shader available for Unity.
+MicroSplat is fully supported by Digger. It is actually recommended to use MicroSplat with Digger to get best results. MicroSplat is one of the best terrain shaders available for Unity.
 
 You will need:
 - [MicroSplat](https://assetstore.unity.com/packages/tools/terrain/microsplat-96478)
@@ -385,15 +385,15 @@ Disable Burst Compilation from the Burst menu. Restart Unity, and try digging ag
 In such case, you should report the bug to Unity.
 
 #### When I do some raycasts, it still detects the terrain surface on holes. How can I do to raycast through terrain holes?
-Until Unity releases official terrain holes feature, you have to use DiggerPhysics.Raycast method to solve this.
+Until Unity releases an official terrain holes feature, you have to use DiggerPhysics.Raycast method to solve this.
 
 #### I changed the textures of my terrain, and now caves don’t blend with terrain properly because they still use the old textures.
-Click on ‘Sync & Refresh’ button of the Digger Master inspector.
+Click on the ‘Sync & Refresh’ button of the Digger Master inspector.
 
 If that’s not enough, delete texture arrays belonging to the terrain in Assets/DiggerData/TextureArrays and click on ‘Sync & Refresh’ button of the Digger Master inspector. This will force Digger to recompute texture arrays.
 
 #### I changed the heights of my terrain at some place, but Digger doesn’t see it.
-Click on ‘Sync & Refresh’ button of the Digger Master inspector. If you already dig/add mater at this place, you will probably have to reset it using the reset brush.
+Click on the ‘Sync & Refresh’ button of the Digger Master inspector. If you already dig/add mater at this place, you will probably have to reset it using the reset brush.
 
 #### What should I save when I backup my project?
 Digger persists everything in Assets/DiggerData. If you save this folder, you’re fine.
