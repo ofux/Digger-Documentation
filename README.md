@@ -298,10 +298,8 @@ Note: if you are using CTS, Digger has to compute mesh tangents which slows down
 
 ### About NavMeshComponents
 
-Digger PRO comes with a customized version of [NavMeshComponents](https://github.com/Unity-Technologies/NavMeshComponents) module.
-This is the latest version of Unity's NavMeshComponents with only a few changes to make some C# methods public and usable from DiggerNavMeshRuntime script, which was needed for optimisation purpose.
-
-The namespace has also been changed from *UnityEngine.AI* to *Digger.Navigation* to avoid any confict.
+Digger PRO includes [NavMeshComponents](https://github.com/Unity-Technologies/NavMeshComponents) scripts (for reference, the version included corresponds to the comit 1f028efc4cbb7650992c91e2920b598db52bc74f of the GitHub's repository).
+The scripts have not been modified and are included as-is, which means if you already have those scripts in your project, you won't need to import them.
 
 ### Setup
 
