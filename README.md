@@ -22,6 +22,10 @@ Digger is very easy to setup. Just download and import it from the Asset Store. 
 
 From now on, Digger should be imported and **there should not be any error in the console**. There should be a new menu: *Tools > Digger*.
 
+### Install shaders for URP 10+
+
+If you are using URP 10+, you have to import `DiggerURP10.unitypackage` file that can be found in *Assets/Digger/Shaders* folder.
+
 
 ## Update
 
@@ -30,6 +34,10 @@ From now on, Digger should be imported and **there should not be any error in th
 Also, before updating Digger, it is recommended to backup your project (as with any asset update).
 
 **After importing the new version, open Digger Master and click on *Sync & Refresh*.**
+
+### Update shaders for URP 10+
+
+If you are using URP 10+, you have to import `DiggerURP10.unitypackage` file that can be found in *Assets/Digger/Shaders* folder.
 
 
 ## Installation issues
@@ -77,7 +85,7 @@ Note: the first time you dig, Unity will freeze during a few seconds. This is be
 ## Details of each field
 
 ### Edit tab
-- **Action:** lets you choose the action to perform between digging terrain, raising overhangs, reseting (reset to terrain height but do not restore terrain details objects), or painting.
+- **Action:** lets you choose the action to perform between digging terrain, raising overhangs, reseting (reset to terrain height but do not restore terrain details objects), painting textures, or painting holes.
 - **Brush:** lets you choose the brush type to use between sphere, cube and stalagmite.
 - **Brush Size:** the size of the brush.
 - **Opacity:** the speed at which you will dig/add mater to the terrain. This has no effect on reset and paint actions.
