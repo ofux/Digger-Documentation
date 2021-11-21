@@ -79,7 +79,10 @@ The Digger Master inspector looks like this:
 
 To start digging, just click somewhere on your terrain!
 
-Note: the first time you dig, Unity will freeze during a few seconds. This is because the Burst compiler needs to compile internal Digger jobs.
+> Note: the first time you dig, Unity will freeze during a few seconds. This is because the Burst compiler needs to compile internal Digger jobs.
+
+> Note: make sure your terrain has at least one layer properly defined (with a texture).
+If you have several terrains, make sure they share the same layers as Digger will only get layers that are common to all terrains.
 
 
 ## Details of each field
@@ -134,6 +137,9 @@ If shorcuts are enabled (in settings tab), then you can:
 Digger now supports realtime editing, at runtime. To enable Digger at runtime, you **must** add `DiggerMasterRuntime` component in your scene(s). The easiest way to do this is to click on *Tools > Digger > Setup for runtime* menu. This will add an empty GameObject in your scene named "Digger Master Runtime" with the `DiggerMasterRuntime` attached to it.
 
 <img src="assets/img/setup-runtime.png" alt="Package Manager" width="250"/>
+
+> Note: make sure your terrain has at least one layer properly defined (with a texture).
+If you have several terrains, make sure they share the same layers as Digger will only get layers that are common to all terrains.
 
 ### Use
 
@@ -385,6 +391,10 @@ Digger also provides a tool that can replace all occurrences of Physics.Raycast 
 
 
 ## Troubleshooting
+
+#### When I dig the terrain, a hole appear but the cave mesh seems invisible
+Make sure your terrain has at least one layer properly defined (with a texture).
+If you have several terrains, make sure they share the same layers as Digger will only get layers that are common to all terrains.
 
 #### When I dig for the first time, it works, but as soon as I dig again, bad things happen!
 Disable Burst Compilation from the Burst menu. Restart Unity, and try digging again. If this fixes your issue, it means Burst is doing something wrong on your platform.
