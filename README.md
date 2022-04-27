@@ -374,21 +374,36 @@ You will need:
 - [Triplanar module](https://assetstore.unity.com/packages/tools/terrain/microsplat-triplanar-uvs-96777)
 - [Digger integration module](https://assetstore.unity.com/packages/tools/terrain/microsplat-digger-integration-162840)
 
-## Integration with CTS
+## Advanced Operations module
 
-CTS (Complete Terrain Shaders) is partially supported by Digger, but as things stand, you won’t be able to change textures in caves or on overhangs. It will pick-up the terrain texture.
+The Advanced Operations module comes with a few new high-level operations that will save you a lot of time.
 
+### Spline
 
-## Raycast with DiggerPhysics (not necessary with Unity 2019.3+)
+#### Bezier Spline
+The Spline operation lets you perform a Dig or Add operation along a Bezier spline.
 
-Unless you use Unity 2019.3 (or more recent), Unity *Physics.Raycast* methods won’t work through cave entrances because they will hit the old terrain surface as if it was still there. To solve this issue, Digger provides equivalent Raycast methods through the script *DiggerPhysics*.
+First, create a new spline by clicking on *Tools > Digger > Create Bezier Spline* menu. Then, select the new spline in the hierachy to display its inspector.
 
-⇒ To make raycasts work properly on cave entrances, you must replace all *Physics.Raycast* methods with *DiggerPhysics.Raycast* equivalent (just replace "Physics" by "DiggerPhysics").
+To edit the spline manually, you can:
+- add more points by clicking on the *Add Point* button in the inspector.
+- remove a point by clicking on it in the scene view; Once it is selected, you can cick on the *Remove* button in the inspector.
+- move a point of the spline by clicking on it in the scene view; Once it is selected, you can move it.
+- change a connection between two points of the spline by clicking on it in the scene view; Once it is selected, 
+click on one of the two little sphere that show up and move it. You can also change the connection type from the inspector.
 
-Digger also provides a tool that can replace all occurrences of Physics.Raycast with DiggerPhysics.Raycast in a script for you. To use it, right-click on the script file you want to update and click on *Digger > Convert Raycasts* as shown below.
+You can also edit the spline by generating it. See the Procedural Generation section of the spline's inspector for more details.
 
-<img src="assets/img/digger-raycast-converter.png" alt="Package Manager" width="250"/>
+#### Spline operation
+Once your spline is ready, open the Digger Master inspector, select the operation "Spline", and then pick-up your spline in the "Spline" field. The spline
+should be displayed in the scene view.
 
+Now, chose which operation you want to do along the spline (either Dig or Add) and click on the "Perform operation along the spline" button.
+Et voilà!
+
+### Easy Overhangs
+
+The Easy Overhangs operation lets you create big overhangs very quickly in your terrain's cliffs. It is designed to work on almost-vertical slopes.
 
 ## Troubleshooting
 
