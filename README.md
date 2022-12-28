@@ -22,9 +22,9 @@ Digger is very easy to setup. Just download and import it from the Asset Store. 
 
 From now on, Digger should be imported and **there should not be any error in the console**. There should be a new menu: *Tools > Digger*.
 
-### Install shaders for URP 10+
+### Install shaders for HDRP 14+
 
-If you are using URP 10+, you have to import `DiggerURP10.unitypackage` file that can be found in *Assets/Digger/Shaders* folder.
+If you are using HDRP 14+, you have to import `Digger_HDRP14_shaders.unitypackage` file that can be found in *Assets/Digger/Shaders* folder.
 
 
 ## Update
@@ -35,22 +35,22 @@ Also, before updating Digger, it is recommended to backup your project (as with 
 
 **After importing the new version, open Digger Master and click on *Sync & Refresh*.**
 
-### Update shaders for URP 10+
+### Update shaders for HDRP 14+
 
-If you are using URP 10+, you have to import `DiggerURP10.unitypackage` file that can be found in *Assets/Digger/Shaders* folder.
+If you are using HDRP 14+, you have to import `Digger_HDRP14_shaders.unitypackage` file that can be found in *Assets/Digger/Shaders* folder.
 
 
 ## Installation issues
 
 If you get some errors after importing Digger, please check the following:
 
-**First, make sure your project uses *.NET 4.x* as [shown here](https://docs.unity3d.com/2019.1/Documentation/Manual/ScriptingRuntimeUpgrade.html).**
+First, make sure your project uses *.NET 4.x* as [shown here](https://docs.unity3d.com/2019.1/Documentation/Manual/ScriptingRuntimeUpgrade.html).
 
 Then, open the Package Manager (menu *Windows > Package Manager*).
 
 <img src="assets/img/package-manager-menu.png" alt="Package Manager" width="180"/>
 
-Install the latest version of the packages `Mathematics` and `Burst`.
+Install the latest version of the packages `Burst`.
 
 Delete Assets/Digger folder (if any) and import Digger into your project (from the Asset Store). **When Unity asks you if you want to install required packages, click *No*.**
 
@@ -134,7 +134,7 @@ If shorcuts are enabled (in settings tab), then you can:
 
 ### Setup
 
-Digger now supports realtime editing, at runtime. To enable Digger at runtime, you **must** add `DiggerMasterRuntime` component in your scene(s). The easiest way to do this is to click on *Tools > Digger > Setup for runtime* menu. This will add an empty GameObject in your scene named "Digger Master Runtime" with the `DiggerMasterRuntime` attached to it.
+Digger PRO supports realtime editing, at runtime. To enable Digger at runtime, you **must** add `DiggerMasterRuntime` component in your scene(s). The easiest way to do this is to click on *Tools > Digger > Setup for runtime* menu. This will add an empty GameObject in your scene named "Digger Master Runtime" with the `DiggerMasterRuntime` attached to it.
 
 <img src="assets/img/setup-runtime.png" alt="Package Manager" width="250"/>
 
@@ -160,19 +160,18 @@ The signature of the *Modify* method is:
 /// <param name="textureIndex">Index of the texture to be used (starting from 0 to 7). See DiggerMaster inspector to know what texture corresponds to an index.</param>
 /// <param name="opacity">Strength/intensity of edit</param>
 /// <param name="size">Size of edit</param>
-/// <param name="removeDetails">Remove terrain details in range</param>
-/// <param name="removeTreesInSphere">Remove terrain trees in range</param>
 /// <param name="stalagmiteHeight">Height of stalagmite (only when Brush is stalagmite)</param>
 /// <param name="stalagmiteUpsideDown">Defines if stalagmite is upside-down or not (only when Brush is stalagmite)</param>
+/// <param name="opacityIsTarget">If true when painting texture, the weight of the texture will be directly set to the given opacity</param>
 public void Modify(Vector3 position, BrushType brush, ActionType action, int textureIndex, float opacity,
-                   float size, bool removeDetails = true, bool removeTreesInSphere = true, float stalagmiteHeight = 8f, bool stalagmiteUpsideDown = false)
+    float size, float stalagmiteHeight = 8f, bool stalagmiteUpsideDown = false, bool opacityIsTarget = false)
 ```
 
 Here is an example showing how you could use it in your scripts:
 ```csharp
 var diggerMasterRuntime = FindObjectOfType<DiggerMasterRuntime>();
 
-if (DiggerPhysics.Raycast(transform.position, transform.forward, out var hit, 2000f)) {
+if (Physics.Raycast(transform.position, transform.forward, out var hit, 2000f)) {
     diggerMasterRuntime.Modify(hit.point, BrushType.Sphere, ActionType.Dig, 0, 0.5f, 4f);
 }
 ```
@@ -195,14 +194,12 @@ The signature of the *ModifyAsync* method is:
 /// <param name="textureIndex">Index of the texture to be used (starting from 0 to 7). See DiggerMaster inspector to know what texture corresponds to an index.</param>
 /// <param name="opacity">Strength/intensity of edit</param>
 /// <param name="size">Size of edit</param>
-/// <param name="removeDetails">Remove terrain details in range. Note: starting from Unity 2019.3 this parameter is ignored and details are always removed.</param>
-/// <param name="removeTreesInSphere">Remove terrain trees in range</param>
 /// <param name="stalagmiteHeight">Height of stalagmite (only when Brush is stalagmite)</param>
 /// <param name="stalagmiteUpsideDown">Defines if stalagmite is upside-down or not (only when Brush is stalagmite)</param>
 /// <param name="opacityIsTarget">If true when painting texture, the weight of the texture will be directly set to the given opacity</param>
+/// <param name="callback">A callback function that will be called once modification is done</param>
 public IEnumerator ModifyAsync(Vector3 position, BrushType brush, ActionType action, int textureIndex, float opacity,
-                               float size, bool removeDetails = true, bool removeTreesInSphere = true, float stalagmiteHeight = 8f,
-                               bool stalagmiteUpsideDown = false, bool opacityIsTarget = false)
+    float size, float stalagmiteHeight = 8f, bool stalagmiteUpsideDown = false, bool opacityIsTarget = false, Action callback = null)
 ```
 **You MUST check that *IsRunningAsync* is *false* before calling this method. Also, you MUST call it as a Coroutine.**
 This is why it is easier to use the *ModifyAsyncBuffured* method (see below).
@@ -226,21 +223,19 @@ The signature of the *ModifyAsyncBuffured* is:
 /// <param name="textureIndex">Index of the texture to be used (starting from 0 to 7). See DiggerMaster inspector to know what texture corresponds to an index.</param>
 /// <param name="opacity">Strength/intensity of edit</param>
 /// <param name="size">Size of edit</param>
-/// <param name="removeDetails">Remove terrain details in range. Note: starting from Unity 2019.3 this parameter is ignored and details are always removed.</param>
-/// <param name="removeTreesInSphere">Remove terrain trees in range</param>
 /// <param name="stalagmiteHeight">Height of stalagmite (only when Brush is stalagmite)</param>
 /// <param name="stalagmiteUpsideDown">Defines if stalagmite is upside-down or not (only when Brush is stalagmite)</param>
 /// <param name="opacityIsTarget">If true when painting texture, the weight of the texture will be directly set to the given opacity</param>
+/// <param name="callback">A callback function that will be called once modification is done</param>
 public bool ModifyAsyncBuffured(Vector3 position, BrushType brush, ActionType action, int textureIndex, float opacity,
-                                float size, bool removeDetails = true, bool removeTreesInSphere = true, float stalagmiteHeight = 8f,
-                                bool stalagmiteUpsideDown = false, bool opacityIsTarget = false)
+    float size, float stalagmiteHeight = 8f, bool stalagmiteUpsideDown = false, bool opacityIsTarget = false, Action callback = null)
 ```
 
 Here is an example showing how you could use it in your scripts:
 ```csharp
 var diggerMasterRuntime = FindObjectOfType<DiggerMasterRuntime>();
 
-if (DiggerPhysics.Raycast(transform.position, transform.forward, out var hit, 2000f)) {
+if (Physics.Raycast(transform.position, transform.forward, out var hit, 2000f)) {
     diggerMasterRuntime.ModifyAsyncBuffured(hit.point, BrushType.Sphere, ActionType.Dig, 0, 0.5f, 4f);
 }
 ```
@@ -297,16 +292,14 @@ public void SetupRuntimeTerrain(Terrain terrain)
 Keep in mind that digging has a cost. To prevent performance issues at runtime, keep the brush size as small as possible. Also, try to call the *Modify* method at most one time per frame.
 
 You can also improve performance by:
-- using Unity 2019.3+
+
 - lowering the size of chunks (set it to 16) in the Settings tab
 - disabling LODs generation
 - use async modification methods
-- reducing the size of the terrain's control map (only if you use Unity 2019.2 o an older version)
 - reducing the size of the terrain's heightmap
 - if you have a big terrain, cut it in smaller chunks (ie. use multiple terrains instead of only one)
 
 Note: if you are using CTS, Digger has to compute mesh tangents which slows down the build process.
-
 
 ## Realtime / in-game NavMesh update (PRO only)
 
@@ -415,9 +408,6 @@ If you have several terrains, make sure they share the same layers as Digger wil
 Disable Burst Compilation from the Burst menu. Restart Unity, and try digging again. If this fixes your issue, it means Burst is doing something wrong on your platform.
 In such case, you should report the bug to Unity.
 
-#### When I do some raycasts, it still detects the terrain surface on holes. How can I do to raycast through terrain holes?
-Until Unity releases official terrain holes feature, you have to use DiggerPhysics.Raycast method to solve this.
-
 #### I changed the textures of my terrain, and now caves don’t blend with terrain properly because they still use the old textures.
 Click on ‘Sync & Refresh’ button of the Digger Master inspector.
 
@@ -459,8 +449,8 @@ See this page for more information about terrain layers: https://docs.unity3d.co
 ## F.A.Q
 
 #### Does Digger support the built in navmesh system?
-No, because the navmesh system will still think the terrain is there (it won’t take terrain holes into account).
-We will have to wait for Unity 2019.3 and its official, clean, terrain *cut* feature for this.
+Yes, Digger does support Navmesh out of the box.
+Digger PRO even supports navmesh update at runtime thanks to provided NavMesh Components extension.
 
 #### Is this an extension to Unity's built-in terrain system or an entirely proprietary system?
 It’s an extension of the Unity’s built in terrain system. Basically, it just cuts the terrain where needed and generate meshes for caves and overhangs. In the end, you get a Unity terrain + some meshes (with different LODs because Digger generates automatically different LODs for each mesh).
@@ -471,12 +461,7 @@ Transition between meshes and terrain is seamless because they basically use the
 No, only edit time. For real-time, you should get a full voxel terrain engine like Ultimate Terrains.
 
 #### Does this affect collisions? Meaning I can walk my character in these holes and into the caves?
-Yes it solves collision thanks to automatically generated triggers + collision meshes. At the end of the video (on Asset Store page), you can see some balls falling into the caves. There is no need to add anything to your objects to make it work.
-
-However, to get Raycast working, you will have to use DiggerPhysics.Raycast method.
-
-#### How can I do to make Raycast working through cave entrances?
-Until official terrain hole/cut feature (coming in Unity 2019.3), you have to use the DiggerPhysics.Raycast method.
+Yes, collisions are correctly affected without any additional cost.
 
 #### How to see the objects and meshes created by Digger from the hierarchy?
 Find the *DiggerSystem* object which is a child of your Terrain. Select it. In the inspector GUI, enable *"Show debug data"*. Save the scene and reload it (close it and open it again or restart Unity).
@@ -488,14 +473,6 @@ You will now see all the objects, meshes and colliders as children of the *Digge
 To get support, join us on **Discord**: https://discord.gg/C2X6C6s
 
 Latest version of this documentation can be found here: https://ofux.github.io/Digger-Documentation/
-
-## About Unity 2019.3
-
-Unity 2019.3 comes with a new feature allowing to cleanly cut holes in the terrain. However, it does **not** create cave meshes for you. This is why Digger is a perfect companion of this new feature.
-
-Thanks to this new way to cut holes in the terrain surface, Digger has better performance, is more robust, works out of the box with NavMesh and works with Physics.Raycast (no need to use DiggerPhysics anymore).
-
-This is why **it is recommended to use Unity 2019.3 with Digger or Digger PRO**.
 
 ## How to thank the developer?
 
