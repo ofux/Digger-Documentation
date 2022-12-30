@@ -398,6 +398,62 @@ Et voilà!
 
 The Easy Overhangs operation lets you create big overhangs very quickly in your terrain's cliffs. It is designed to work on almost-vertical slopes.
 
+## Integration with MapMagic 2 (only with Digger PRO)
+
+If you use MapMagic 2 and want to setup Digger on terrains generated at runtime, you'll need to call `diggerMasterRuntime.SetupRuntimeTerrain(terrain);`method every time after a new terrain is ready.
+
+Fortunately, [MapMagic provides a way to subscribe to events that will let you know when a new terrain has been generated](https://gitlab.com/denispahunov/mapmagic/-/wikis/FAQ/ScriptingFAQ#i-want-to-be-aware-when-tile-is-generated).
+
+Here is a script example showing how to react to such event. Just add this script to an object in your scene and it should work.
+
+```csharp
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Digger.Modules.Runtime.Sources;
+using MapMagic.Products;
+using MapMagic.Terrains;
+using UnityEngine;
+
+public class MapMagicDiggerIntegration : MonoBehaviour
+{
+    private DiggerMasterRuntime digger;
+
+    private void OnEnable()
+    {
+        digger = FindObjectOfType<DiggerMasterRuntime>();
+        if (digger) {
+            MapMagic.Terrains.TerrainTile.OnTileApplied += onTileCompleted;
+        } else {
+            Debug.LogError("Could not find DiggerMasterRuntime object. MapMagic Digger integration will be disabled.");
+        }
+    }
+
+    private void onTileCompleted(TerrainTile tile, TileData tileData, StopToken stopToken)
+    {
+        if (tileData.isDraft)
+        {
+            // We do not want to setup Digger on draft tiles
+            return;
+        }
+
+        Terrain? terrain = tile.GetTerrain(false);
+        if (terrain == null)
+        {
+            terrain = tile.GetTerrain(true);
+        }
+        if (terrain == null)
+        {
+            Debug.LogError($"Could not find tile's terrain. Unable to setup Digger for tile {tile}");
+            return;
+        }
+
+        digger.SetupRuntimeTerrain(terrain);
+    }
+}
+```
+
+
 ## Troubleshooting
 
 #### When I dig the terrain, a hole appear but the cave mesh seems invisible
