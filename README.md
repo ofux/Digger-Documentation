@@ -22,10 +22,6 @@ Digger is very easy to setup. Just download and import it from the Asset Store. 
 
 From now on, Digger should be imported and **there should not be any error in the console**. There should be a new menu: *Tools > Digger*.
 
-### Install shaders for HDRP 14+
-
-If you are using HDRP 14+, you have to import `Digger_HDRP14_shaders.unitypackage` file that can be found in *Assets/Digger/Shaders* folder.
-
 
 ## Update
 
@@ -522,6 +518,9 @@ Yes, collisions are correctly affected without any additional cost.
 #### How to see the objects and meshes created by Digger from the hierarchy?
 Find the *DiggerSystem* object which is a child of your Terrain. Select it. In the inspector GUI, enable *"Show debug data"*. Save the scene and reload it (close it and open it again or restart Unity).
 You will now see all the objects, meshes and colliders as children of the *DiggerSystem* object.
+
+#### I have stretching issues on large areas on my terrain, what can I do?
+Try to disable the "Draw instance" setting in terrain inspector.
 
 
 ## Support
